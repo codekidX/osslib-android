@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dim_white">#EEEEEE</color>
+    <array name="project_img_color">
+        <item>#FF26C6DA</item>
+        <item>#FFEF5350</item>
+        <item>#7E57C2</item>
+        <item>#66BB6A</item>
+        <item>#FF7043</item>
+        <item>#FFCA28</item>
+    </array>
+    <array name="project_bg_color">
+        <item>#3826C6DA</item>
+        <item>#38EF5350</item>
+        <item>#387E57C2</item>
+        <item>#3866BB6A</item>
+        <item>#38FF7043</item>
+        <item>#38FFCA28</item>
+    </array>
+</resources>

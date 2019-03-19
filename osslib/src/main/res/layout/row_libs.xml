@@ -3,45 +3,86 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        android:clickable="true"
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:focusable="true">
 
-    <androidx.cardview.widget.CardView android:layout_width="50dp"
-                                       android:id="@+id/icon_bg"
-                                       android:layout_height="50dp"
-                                       app:cardCornerRadius="25dp"
-                                       android:layout_margin="16dp"
-                                       app:cardBackgroundColor="#6B1F1F1F"
-                                       app:cardElevation="0dp"
-    />
+    <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-            android:src="@drawable/ic_octicons_repo"
-            android:tint="#F01F1F1F"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="29dp"
-            android:layout_marginStart="29dp"
 
-    />
+        <com.google.android.material.card.MaterialCardView
+                android:layout_width="50dp"
+                android:id="@+id/icon_bg"
+                android:layout_height="50dp"
+                app:cardCornerRadius="25dp"
+                android:layout_margin="16dp"
+                app:cardBackgroundColor="#3726C6DA"
+                app:cardElevation="0dp"
+        />
 
-    <TextView
-            android:id="@+id/lib_name"
-            android:text="Ashish"
-            android:textStyle="bold"
-            android:layout_alignTop="@id/icon_bg"
-            android:layout_toEndOf="@id/icon_bg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        <ImageView
+                android:id="@+id/icon_img"
+                android:src="@drawable/project"
+                android:tint="#FFCA28"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp"
 
-    <TextView
-            android:id="@+id/lib_desc"
-            android:text="Ashish"
-            android:layout_marginTop="4dp"
-            android:layout_below="@id/lib_name"
-            android:textSize="12sp"
-            android:layout_toEndOf="@id/icon_bg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+        />
+
+        <TextView
+                android:id="@+id/lib_name"
+                android:text="Ashish"
+                android:textStyle="bold"
+                android:layout_alignTop="@id/icon_bg"
+                android:layout_toEndOf="@id/icon_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:id="@+id/lib_desc"
+                android:text="Ashish"
+                android:layout_marginTop="4dp"
+                android:layout_below="@id/lib_name"
+                android:textSize="12sp"
+                android:layout_toEndOf="@id/icon_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <com.google.android.material.chip.ChipGroup
+                android:layout_below="@id/lib_desc"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_alignStart="@id/lib_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <com.google.android.material.chip.Chip
+                    android:id="@+id/license_chip"
+                    android:textColor="#313131"
+
+                    app:chipBackgroundColor="#EEEEEE"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <com.google.android.material.chip.Chip
+                    android:id="@+id/readme_chip"
+                    android:textColor="#313131"
+                    android:fontFamily="sans-serif-light"
+                    app:chipBackgroundColor="#EEEEEE"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </RelativeLayout>
+
 
 </RelativeLayout>

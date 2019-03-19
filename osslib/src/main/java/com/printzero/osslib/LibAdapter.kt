@@ -1,10 +1,14 @@
 package com.printzero.osslib
 
+import android.content.res.ColorStateList
+import android.os.Build
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.row_libs.view.*
+import java.util.*
 
 /**
  * Copyright 2017 codekid for OSSLibDemo. Do not use any
@@ -26,11 +30,9 @@ class LibAdapter(private val libs: MutableList<Lib>) : RecyclerView.Adapter<LibA
     }
 
     class TestHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
-        //2
-        private var view: View = v
-        private var photo: Lib? = null
 
-        //3
+        private var view: View = v
+
         init {
             v.setOnClickListener(this)
         }
@@ -38,16 +40,37 @@ class LibAdapter(private val libs: MutableList<Lib>) : RecyclerView.Adapter<LibA
         fun initRow(test: Lib) {
             view.lib_name.text = test.name
             view.lib_desc.text = test.description
+            view.license_chip.text = test.license.spdx_id
+            val iconColors = view.context.resources.getIntArray(R.array.project_img_color)
+            val bgColors = view.context.resources.getIntArray(R.array.project_bg_color)
+            val randomColorIndex = (Math.random() * iconColors.size).toInt()
+
+            view.icon_bg.setCardBackgroundColor(bgColors[randomColorIndex])
+            view.icon_bg.strokeColor = iconColors[randomColorIndex]
+            view.icon_bg.strokeWidth = 1
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                view.icon_img.imageTintList = ColorStateList.valueOf(iconColors[randomColorIndex])
+            } else {
+                view.icon_img.setColorFilter(ContextCompat.getColor(view.context, iconColors[randomColorIndex]), android.graphics.PorterDuff.Mode.SRC_IN)
+            }
+
+            view.license_chip.setOnClickListener {
+                Log.d(javaClass.name, "readme clicked")
+            }
+
+            if (test.readme.isEmpty()) {
+                view.readme_chip.visibility = View.INVISIBLE
+            } else {
+                view.readme_chip.setOnClickListener {
+                    Log.d(javaClass.name, "readme clicked")
+                }
+                view.readme_chip.text = "README"
+            }
         }
 
-        //4
+
         override fun onClick(v: View) {
             Log.d("RecyclerView", "CLICK!")
-        }
-
-        companion object {
-            //5
-            private val PHOTO_KEY = "PHOTO"
         }
     }
 }
