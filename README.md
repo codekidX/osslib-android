@@ -6,7 +6,7 @@ Showcase all the open-source libraries that your project uses with a single line
 
 ## How to use this library ?
 
-**This library is works in 2 steps and 1 line of code:**
+**This library works in 2 steps and 1 line of code:**
 
 ### 2 steps:
 
