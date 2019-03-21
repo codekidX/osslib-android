@@ -39,6 +39,7 @@
                 android:id="@+id/lib_name"
                 android:text="Ashish"
                 android:textStyle="bold"
+                android:layout_marginEnd="16dp"
                 android:layout_alignTop="@id/icon_bg"
                 android:layout_toEndOf="@id/icon_bg"
                 android:layout_width="wrap_content"
@@ -47,9 +48,10 @@
         <TextView
                 android:id="@+id/lib_desc"
                 android:text="Ashish"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="16dp"
                 android:layout_below="@id/lib_name"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:layout_toEndOf="@id/icon_bg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -65,9 +67,7 @@
             <com.google.android.material.chip.Chip
                     android:id="@+id/license_chip"
                     android:textColor="#313131"
-
                     app:chipBackgroundColor="#EEEEEE"
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -76,7 +76,6 @@
                     android:textColor="#313131"
                     android:fontFamily="sans-serif-light"
                     app:chipBackgroundColor="#EEEEEE"
-
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
