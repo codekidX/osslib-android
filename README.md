@@ -29,6 +29,8 @@ startActivity(new Intent(this, OSSLActivity.class))
 
 And it will show you a screen like this
 
-![lib-demo](https://i.imgur.com/3Kxrwoq.png)
+<p align="center">
+    <img src="https://i.imgur.com/3Kxrwoq.png" width="400">
+</p>
 
 Easy right?!
