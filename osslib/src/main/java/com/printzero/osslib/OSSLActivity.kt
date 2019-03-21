@@ -17,12 +17,6 @@ import java.io.*
 
 
 
-fun ViewGroup.inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View {
-    return LayoutInflater.from(context).inflate(layoutRes, this, attachToRoot)
-}
-
-
-
 class OSSLActivity : AppCompatActivity() {
 
     private lateinit var linearLayoutManager: LinearLayoutManager

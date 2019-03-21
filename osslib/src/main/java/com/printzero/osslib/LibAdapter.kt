@@ -8,12 +8,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.row_libs.view.*
-import java.util.*
 
-/**
- * Copyright 2017 codekid for OSSLibDemo. Do not use any
- * of the code befor asking my permission.
- */
 class LibAdapter(private val libs: MutableList<Lib>) : RecyclerView.Adapter<LibAdapter.TestHolder>()  {
 
 
@@ -37,10 +32,10 @@ class LibAdapter(private val libs: MutableList<Lib>) : RecyclerView.Adapter<LibA
             v.setOnClickListener(this)
         }
 
-        fun initRow(test: Lib) {
-            view.lib_name.text = test.name
-            view.lib_desc.text = test.description
-            view.license_chip.text = test.license.spdx_id
+        fun initRow(lib: Lib) {
+            view.lib_name.text = lib.name
+            view.lib_desc.text = lib.description
+            view.license_chip.text = lib.license.spdx_id
             val iconColors = view.context.resources.getIntArray(R.array.project_img_color)
             val bgColors = view.context.resources.getIntArray(R.array.project_bg_color)
             val randomColorIndex = (Math.random() * iconColors.size).toInt()
@@ -58,7 +53,7 @@ class LibAdapter(private val libs: MutableList<Lib>) : RecyclerView.Adapter<LibA
                 Log.d(javaClass.name, "readme clicked")
             }
 
-            if (test.readme.isEmpty()) {
+            if (lib.readme.isEmpty()) {
                 view.readme_chip.visibility = View.INVISIBLE
             } else {
                 view.readme_chip.setOnClickListener {
