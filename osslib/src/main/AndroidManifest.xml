@@ -5,7 +5,7 @@
     <application>
         <activity
                 android:name=".OSSLActivity"
-                android:label="Open-source licences"
+                android:label="Open-source licenses"
                 android:theme="@style/AppTheme.NoActionBar"
         >
         </activity>
