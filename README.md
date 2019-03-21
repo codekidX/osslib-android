@@ -10,7 +10,7 @@ Showcase all the open-source libraries that your project uses with a single line
 
 ### 2 steps:
 
-- **Generate** `osslib.json` by using [osslib-web](https://github.com/codekidX/osslib-web) generator. Look at [working](https://github.com/codekidX/osslib-web#working) here.
+- **Generate** `osslib.json` contents by using [osslib-web](https://github.com/codekidX/osslib-web) generator. Look at [working](https://github.com/codekidX/osslib-web#working) here.
 - **Click** on copy to clipboard option and save it as `osslib.json` into your project assets folder.
 
 ### 1 line of code:
