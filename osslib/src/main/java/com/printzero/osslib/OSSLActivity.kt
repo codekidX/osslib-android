@@ -19,6 +19,10 @@ import java.io.*
 
 class OSSLActivity : AppCompatActivity() {
 
+    companion object {
+        val LIBTYPE = object : TypeToken<MutableList<Lib>>() {}.type
+    }
+
     private lateinit var linearLayoutManager: LinearLayoutManager
     private lateinit var adapter: LibAdapter
 
@@ -26,20 +30,25 @@ class OSSLActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ossl)
 
+        try {
+            val osslJson = readJson()
 
-        val LibListType = object : TypeToken<MutableList<Lib>>() {}.type
+            linearLayoutManager = LinearLayoutManager(this)
+            libs_recycler_view.layoutManager = linearLayoutManager
 
-        linearLayoutManager = LinearLayoutManager(this)
-        libs_recycler_view.layoutManager = linearLayoutManager
+            val gson = Gson()
+            val libraries: MutableList<Lib> = gson.fromJson<MutableList<Lib>>(osslJson, LIBTYPE)
+            adapter = LibAdapter(libraries)
+            libs_recycler_view.adapter = adapter
+        } catch (e: IOException) {
+            Log.e(javaClass.name, "osslib.json not found !!")
+        }
 
-        val gson = Gson()
 
-        val libraries: MutableList<Lib> = gson.fromJson<MutableList<Lib>>(readJson(), LibListType)
-        adapter = LibAdapter(libraries)
-        libs_recycler_view.adapter = adapter
 
     }
 
+    @Throws(IOException::class)
     private fun readJson(): Reader {
         val stream: InputStream = assets.open("osslib.json")
         return BufferedReader(InputStreamReader(stream))
