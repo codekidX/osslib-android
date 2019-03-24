@@ -1,6 +1,8 @@
 package com.printzero.osslib
 
+import android.content.Intent
 import android.content.res.ColorStateList
+import android.net.Uri
 import android.os.Build
 import android.util.Log
 import android.view.View
@@ -24,13 +26,9 @@ class LibAdapter(private val libs: MutableList<Lib>) : RecyclerView.Adapter<LibA
         holder.initRow(libs[position])
     }
 
-    class TestHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
+    class TestHolder(v: View) : RecyclerView.ViewHolder(v) {
 
         private var view: View = v
-
-        init {
-            v.setOnClickListener(this)
-        }
 
         fun initRow(lib: Lib) {
             view.lib_name.text = lib.name
@@ -50,7 +48,8 @@ class LibAdapter(private val libs: MutableList<Lib>) : RecyclerView.Adapter<LibA
             }
 
             view.license_chip.setOnClickListener {
-                Log.d(javaClass.name, "readme clicked")
+                val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse(lib.license.url))
+                view.context.startActivity(webIntent)
             }
 
             if (lib.readme.isEmpty()) {
@@ -61,11 +60,11 @@ class LibAdapter(private val libs: MutableList<Lib>) : RecyclerView.Adapter<LibA
                 }
                 view.readme_chip.text = "README"
             }
-        }
 
-
-        override fun onClick(v: View) {
-            Log.d("RecyclerView", "CLICK!")
+            view.setOnClickListener {
+                val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/${lib.name}"))
+                view.context.startActivity(webIntent)
+            }
         }
     }
 }
