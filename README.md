@@ -47,7 +47,7 @@ startActivity(new Intent(this, OSSLActivity.class))
 And it will show you a screen like this
 
 <p>
-<img src="https://i.imgur.com/3Kxrwoq.png" width="300">
+<img src="https://i.imgur.com/kjOaHZT.png" width="300">
 </p>
 
 Easy right?!
