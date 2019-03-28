@@ -1,8 +1,25 @@
 # osslib-android
 
-Showcase all the open-source libraries that your project uses with a single line of code. **Honestly speaking** I don't like the way the open-source libraries are displayed in projects and I would like to create a better exposure of libraries and more info for the users/developers to act on it.
+I'm open-sourcing my tool to showcase all the open-source libraries that your project uses with a single line of code.
+
+**Honestly speaking** I don't like the way the open-source libraries are displayed in projects and I would like to create a better exposure of libraries and more info for the users/developers to act on it.
 
 > I personally use this library to list the projects/libraries that my app use to the users so that they can view and even use these projects in their app.
+
+## Installation gradle
+
+```gradle
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+```gradle
+implementation 'com.github.codekidX:osslib-android:0.0.1'
+```
 
 ## How to use this library ?
 
