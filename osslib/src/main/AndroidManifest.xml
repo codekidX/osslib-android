@@ -3,11 +3,12 @@
           package="com.printzero.osslib">
 
     <application>
+        <activity android:name=".OSSLCreditsActivity">
+        </activity>
         <activity
                 android:name=".OSSLActivity"
                 android:label="Open-source licenses"
-                android:theme="@style/AppTheme.NoActionBar"
-        >
+                android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 
