@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.row_libs.view.*
 
-class LibAdapter(private val libs: MutableList<Lib>) : RecyclerView.Adapter<LibAdapter.TestHolder>()  {
+class LibAdapter(private val libs: MutableList<Lib>, private val daskMode: Boolean = false) : RecyclerView.Adapter<LibAdapter.TestHolder>()  {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LibAdapter.TestHolder {
@@ -23,14 +23,14 @@ class LibAdapter(private val libs: MutableList<Lib>) : RecyclerView.Adapter<LibA
     override fun getItemCount() = libs.size
 
     override fun onBindViewHolder(holder: LibAdapter.TestHolder, position: Int) {
-        holder.initRow(libs[position])
+        holder.initRow(libs[position], this.daskMode)
     }
 
     class TestHolder(v: View) : RecyclerView.ViewHolder(v) {
 
         private var view: View = v
 
-        fun initRow(lib: Lib) {
+        fun initRow(lib: Lib, daskMode: Boolean) {
             view.lib_name.text = lib.name
             view.lib_desc.text = lib.description
             view.license_chip.text = lib.license.spdx_id
@@ -55,6 +55,7 @@ class LibAdapter(private val libs: MutableList<Lib>) : RecyclerView.Adapter<LibA
             if (lib.readme.isEmpty()) {
                 view.readme_chip.visibility = View.INVISIBLE
             } else {
+
                 view.readme_chip.setOnClickListener {
                     Log.d(javaClass.name, "readme clicked")
                 }
@@ -64,6 +65,17 @@ class LibAdapter(private val libs: MutableList<Lib>) : RecyclerView.Adapter<LibA
             view.setOnClickListener {
                 val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/${lib.name}"))
                 view.context.startActivity(webIntent)
+            }
+
+
+            if (daskMode) {
+                view.readme_chip.chipBackgroundColor = ColorStateList.valueOf(ContextCompat.getColor(view.context, R.color.osslib_dark_chip_bg))
+                view.license_chip.chipBackgroundColor = ColorStateList.valueOf(ContextCompat.getColor(view.context, R.color.osslib_dark_chip_bg))
+                view.readme_chip.setTextColor(ContextCompat.getColor(view.context, R.color.dim_white))
+                view.license_chip.setTextColor(ContextCompat.getColor(view.context, R.color.dim_white))
+
+                view.lib_name.setTextColor(ContextCompat.getColor(view.context, android.R.color.white))
+                view.lib_desc.setTextColor(ContextCompat.getColor(view.context, android.R.color.white))
             }
         }
     }

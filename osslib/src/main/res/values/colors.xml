@@ -2,6 +2,9 @@
 <resources>
     <color name="dim_white">#EEEEEE</color>
     <color name="purple_alpha">#387E57C2</color>
+    <color name="osslib_dark_bg">#2C2C2C</color>
+    <color name="osslib_dark_toolbar_bg">#1F1E1E</color>
+    <color name="osslib_dark_chip_bg">#555555</color>
     <array name="project_img_color">
         <item>#FF26C6DA</item>
         <item>#FFEF5350</item>
